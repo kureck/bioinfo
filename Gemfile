@@ -11,6 +11,7 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem "bootstrap-sass"
 gem "jquery-rails", "2.1.4"
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.

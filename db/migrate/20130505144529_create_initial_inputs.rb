@@ -1,6 +1,6 @@
-class CreateInitialData < ActiveRecord::Migration
+class CreateInitialInputs < ActiveRecord::Migration
   def change
-    create_table :initial_data do |t|
+    create_table :initial_inputs do |t|
       t.integer :user_id
       t.string :title
       t.text :description

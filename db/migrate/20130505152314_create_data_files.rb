@@ -4,7 +4,7 @@ class CreateDataFiles < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :csvfile
-      t.integer :initial_data_id
+      t.integer :initial_input_id
 
       t.timestamps
     end

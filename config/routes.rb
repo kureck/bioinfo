@@ -4,6 +4,9 @@ Bioinfo::Application.routes.draw do
 
   root :to => "home#index"
   
+  resources :initial_inputs
+  resources :data_files
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

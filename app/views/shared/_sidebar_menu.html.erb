@@ -1,0 +1,15 @@
+<div class="well sidebar-nav">
+	<ul class="nav nav-list">
+		<li class="nav-header">Sidebar</li>
+		<li><%= link_to "Meus dados", initial_inputs_path  %></li>
+		<li><%= link_to "Link2", "/path2"  %></li>
+		<li><%= link_to "Link3", "/path3"  %></li>
+		<li class="nav-header">Dados de login</li>
+		<% if user_signed_in? %>
+			<li><%=link_to current_user.email, edit_user_registration_path %></li>
+			<li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
+		<% else %>
+			<li><%= link_to "Entrar", new_user_session_path %></li>
+		<% end %>
+	</ul>
+</div><!--/.well -->	
