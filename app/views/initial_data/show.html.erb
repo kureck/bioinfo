@@ -1,0 +1,13 @@
+<div id="data_file">
+  <% @initial_data.data_file.each do |painting| %>
+    <div class="data_file">
+      <%= image_tag data_file.csvfile_url.to_s %>
+      <div class="title"><%= data_file.title %></div>
+      <div class="actions">
+        <%= link_to "edit", edit_data_file_path(data_file) %> |
+        <%= link_to "remove", data_file, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
