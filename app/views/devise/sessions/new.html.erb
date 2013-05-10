@@ -1,19 +1,15 @@
 <h2>Entrar</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.input :email, as: :email, :autofocus => true %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.input :password, as: :password, label: "Senha" %>
 
   <% if devise_mapping.rememberable? -%>
-  	<label class="checkbox">
-    	<%= f.check_box :remember_me %> Lembrar de mim
-    </label>
+    <%= f.input :remember_me, as: :boolean, inline_label: 'Lembrar de mim', label: false , label_html: { class: 'checkbox' } %>
   <% end -%>
 
-  <%= f.submit "Sign in" %>
+  <%= f.button :submit, "Entrar" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
