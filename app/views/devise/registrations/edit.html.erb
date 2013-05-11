@@ -1,32 +1,24 @@
 <h2>Editar Usuário</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div><%= f.label :name, "Nome" %><br />
-  <%= f.text_field :name, :autofocus => true %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.input :name, label: "Nome", :autofocus => true  %>
+  <%= f.input :email, as: :email, :autofocus => true %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Ainda esperando confirmação de: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password, "Senha" %> <i>(deixe em branco caso NÃO queira mudar sua senha)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <%= f.input :password, as: :password, label: "Senha", hint: "(deixe em branco caso NÃO queira mudar sua senha)", :autocomplete => "off" %>
+  <%= f.input :password_confirmation, as: :password, label: "Confirmar senha", :autocomplete => "off" %>
 
-  <div><%= f.label :password_confirmation,"Confirmar senha" %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.input :current_password, as: :password, label: "Senha atual", hint: "(precisamos da sua senha atual para troca-la)", :autocomplete => "off" %>
 
-  <div><%= f.label :current_password, "Senha atual" %> <i>(precisamos da sua senha atual para troca-la)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Atualizar" %></div>
+  <%= f.button :submit, "Atualizar" %>
 <% end %>
 
 <h3>Cancelar minha conta</h3>
 
-<p>Não gostou? <%= button_to "Cancelar minha conta", registration_path(resource_name), :data => { :confirm => "Certeza?" }, :method => :delete %>.</p>
+<p>Não gostou? <%= button_to "Cancelar minha conta", registration_path(resource_name), :data => { :confirm => "Certeza?" }, :method => :delete %></p>
 
 <%= link_to "Voltar", :back %>
