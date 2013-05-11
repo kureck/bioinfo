@@ -2,7 +2,7 @@
 class InitialInputsController < ApplicationController
 	before_filter :authenticate_user!
 	def index
-		@initial_inputs = InitialInput.all
+		@initial_inputs = current_user.initial_inputs.all
 	end
 
 	def new
@@ -50,6 +50,6 @@ class InitialInputsController < ApplicationController
 	end
 	
 	def show
-		@initial_input = InitialInput.find(params[:id])
+		@initial_input = current_user.initial_inputs.find(params[:id])
 	end
 end

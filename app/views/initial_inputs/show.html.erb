@@ -1,5 +1,5 @@
 <div id="data_file">
-  <% @initial_data.data_file.each do |painting| %>
+  <% @initial_input.data_files.each do |data_file| %>
     <div class="data_file">
       <%= image_tag data_file.csvfile_url.to_s %>
       <div class="title"><%= data_file.title %></div>
@@ -9,5 +9,4 @@
       </div>
     </div>
   <% end %>
-  <div class="clear"></div>
 </div>
