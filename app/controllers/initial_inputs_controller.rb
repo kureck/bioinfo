@@ -51,5 +51,6 @@ class InitialInputsController < ApplicationController
 	
 	def show
 		@initial_input = current_user.initial_inputs.find(params[:id])
+		@merge_files = MergeFile.new
 	end
 end

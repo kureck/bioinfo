@@ -1,12 +1,6 @@
-<%= form_for @data_file, :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
-  <%= f.hidden_field :initial_data_id %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.file_field :csvfile %>
-  </p>
-  <p><%= f.submit %></p>
+<%= simple_form_for @data_file, :html => {:multipart => true} do |f| %>
+	<%= f.hidden_field :initial_input_id %>
+	<%= f.input :title, label: "Título" %>
+    <%= f.input :csvfile, :as => :file, :label => 'Escolha o arquivo' %>
+	<%= f.button :submit, "Enviar" %>
 <% end %>

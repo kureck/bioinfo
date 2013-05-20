@@ -1,20 +1,25 @@
 <h1>Grupo de dados de <%= current_user.name %></h1>
-
+<div style="margin: 10px 0px 20px 0px; float: right;">
+  <%= link_to 'Novo conjunto de dados', new_initial_input_path, :class => 'btn-large btn-primary' %>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Titulo</th>
       <th>Ver</th>
       <th>Editar</th>
+      <th>Remover</th>
     </tr>
   </thead>
   <tbody>
-  	<tr>
+  	
   		<% @initial_inputs.each do |initial_input| %>
+      <tr>
 	  		<td><%= initial_input.title %></td>
 	  		<td><%= link_to raw('<i class="icon-info-sign icon-white"></i>'), initial_input, :class => 'btn btn-mini  btn-info' %></td>
 	  		<td><%= link_to(raw('<i class="icon-pencil icon-white"></i>'), edit_initial_input_path(initial_input), :class => 'btn btn-mini btn-warning') %></td>
+        <td><%= link_to raw('<i class="icon-remove icon-white"></i>'), initial_input, :confirm => 'Tem certeza?', :method => :delete, :class => 'btn btn-danger btn-mini' %></td>
+      </tr>
   		<% end -%>
-  	</tr>
   </tbody>
  </table>

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505152314) do
+ActiveRecord::Schema.define(:version => 20130514173253) do
 
   create_table "data_files", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "csvfile"
+    t.text     "header"
     t.integer  "initial_input_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -28,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20130505152314) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "merge_files", :force => true do |t|
+    t.integer  "file1_id"
+    t.string   "file_field_1"
+    t.string   "file2_id"
+    t.string   "file_field_2"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

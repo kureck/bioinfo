@@ -5,7 +5,10 @@ Bioinfo::Application.routes.draw do
   root :to => "home#index"
   
   resources :initial_inputs
-  resources :data_files
+  resources :data_files 
+  resources :merge_files do
+    collection { post :start }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

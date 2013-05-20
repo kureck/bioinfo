@@ -12,6 +12,9 @@ gem "twitter-bootstrap-rails"
 gem "bootstrap-sass"
 gem "jquery-rails", "2.1.4"
 gem 'simple_form'
+gem 'roo' # handles xls and csv files
+gem 'debugger'
+gem "mongoid", "~> 3.0.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
