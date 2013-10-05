@@ -1,0 +1,9 @@
+<h1>Arquivo Combinado</h1>
+
+<p class="merge-file-text"><%=@merged_file.merged_name %> | <%= link_to "CSV", merge_file_path(format: "csv", :id => @merged_file.id) %></p>
+
+<div class="row-fluid">
+  <p>
+    <%= link_to "Voltar ao conjunto de dados", initial_input_path(@merged_file.initial_input_id) %>
+  </p>
+</div>

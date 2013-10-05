@@ -16,7 +16,6 @@ class InitialInputsController < ApplicationController
 	
 	def create
 		@initial_input = current_user.initial_inputs.build(params[:initial_input])
-
 		respond_to do |format|
 			if @initial_input.save
 				format.html { redirect_to initial_inputs_path, :notice => "Dado inicial criado com sucesso." }

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class DataFilesController < ApplicationController
   def index
   	@data_files = current_user.initial_inputs.data_files.all
@@ -15,6 +16,7 @@ class DataFilesController < ApplicationController
     header = DataFile.header(params[:data_file][:csvfile])
     params[:data_file][:header] = header
     @data_file = DataFile.new(params[:data_file])
+    CsvFileCollection.import_to_mongo_xls(@data_file.id, params[:data_file][:csvfile])
     if @data_file.save
       flash[:notice] = "Successfully created Data File."
       redirect_to @data_file.initial_input
@@ -39,6 +41,7 @@ class DataFilesController < ApplicationController
 
   def destroy
     @data_file = DataFile.find(params[:id])
+    CsvFileCollection.destroy_mongo_import(@data_file.id)
     @data_file.destroy
     flash[:notice] = "Successfully destroyed Data File."
     redirect_to @data_file.initial_input

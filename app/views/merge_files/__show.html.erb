@@ -1,0 +1,6 @@
+<%= form_tag start_merge_files_path :url => { :action => "start", :controller => 'merge_files' }, :html => { :method => 'post' }, multipart: true do %>
+	<%= hidden_field_tag("id", @merge_file.id) %>
+	<%= label_tag(:merge_name, "Nome da Coleção") %>
+	<%= text_field_tag(:merge_name) %>
+	<%= submit_tag "Start Merge" %>
+<% end -%>

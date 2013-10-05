@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  file1_id: 1
+  file_field_1: MyString
+  file2_id: MyString
+  file_field_2: MyString
+
+two:
+  file1_id: 1
+  file_field_1: MyString
+  file2_id: MyString
+  file_field_2: MyString

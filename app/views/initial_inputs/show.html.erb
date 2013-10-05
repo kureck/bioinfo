@@ -1,15 +1,27 @@
-<h1>Arquivos para o conjunto de dados: <%= @initial_input.title %></h1>
-
-<div style="margin: 10px 0px 20px 0px; float: right;">
-  <%= link_to 'Novo Arquivo', new_data_file_path(:initial_input_id => @initial_input), :class => 'btn-large btn-primary' %>
+<div class="row-fuid">
+  <h1>Conjunto de dados: <%= @initial_input.title %></h1>
 </div>
+<% if @initial_input.data_files == [] %>
+<div class="row-fluid initial-input-no-file">
+  <div class="span9"><h3>Você ainda não fez upload de arquivos...</h3></div>
+  <div class="span3 initial-input-button"><%= link_to 'Upload de Arquivo', new_data_file_path(:initial_input_id => @initial_input), :class => 'btn-large btn-primary' %></div>
+</div>
+<% end -%>
+
+<% if @initial_input.data_files != [] %>
+<div class="row-fluid initial-input-no-file">
+  <div class="span9">
+    <h3>Seus arquivos para este conjunto de dados.</h3>
+  </div>
+  <div class="span3 initial-input-button"><%= link_to 'Upload de Arquivo', new_data_file_path(:initial_input_id => @initial_input), :class => 'btn-large btn-primary' %></div>
+</div>
+<div class="row-fluid initial-input-table">
 <table class="table table-hover">
   <thead>
     <tr>
       <td>Merge Files</td>
       <td>Arquivo</td>
       <td>File name</td>
-      <td>Header</td>
       <td>Editar</td>
       <td>Remover</td>
     </tr>
@@ -20,15 +32,54 @@
       <td><%= check_box_tag("ids[]", data_file.id) %></td>
       <td><%= link_to data_file.title, data_file.csvfile_url.to_s %></td>
       <td><%= data_file.upload_file_name %></td>
-      <td><%= data_file.header %></td>
       <td><%= link_to(raw('<i class="icon-pencil icon-white"></i>'), edit_data_file_path(data_file), :class => 'btn btn-mini btn-warning') %></td>
       <td><%= link_to raw('<i class="icon-remove icon-white"></i>'), data_file, :confirm => 'Tem certeza?', :method => :delete, :class => 'btn btn-danger btn-mini' %></td>
     </tr>
     <% end %>
-    <tr><%= submit_tag "Merge" %></tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= submit_tag "Merge Files", :class => 'btn btn-primary' %></td>
+      <td></td>
+    </tr>
   <% end -%>
 </table>
 
-<p>
-  <%= link_to "Ver conjunto de dados", initial_inputs_path %>
-</p>
+<% if @initial_input.merge_files == [] %>
+  <h3>
+    Você ainda não tem arquivos combinados
+  </h3>
+<% end -%>
+
+<% if @initial_input.merge_files != [] %>
+  <h3>
+    Seus arquivos combinados
+  </h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>Merged file</td>
+        <td></td>
+        <td></td>
+        <td>Remover</td>
+      </tr>
+    </thead>
+    <% @initial_input.merge_files.each do |merged_file| %>
+      <tr>
+        <td><%= merged_file.merged_name %></td>
+        <td><%= link_to "CSV", merge_file_path(format: "csv", :id => merged_file.id) %></td>
+        <td><%= link_to "XLS", merge_file_path(format: "xls", :id => merged_file.id) %></td>
+        <td><%= link_to raw('<i class="icon-remove icon-white"></i>'), merged_file, :confirm => 'Tem certeza?', :method => :delete, :class => 'btn btn-danger btn-mini' %></td>
+      </tr>
+    <% end -%>
+  </table>
+<% end -%>
+</div>
+<% end -%>
+<div class="row-fluid">
+  <p>
+    <%= link_to "Ver todos conjuntos de dados", initial_inputs_path %>
+  </p>
+</div>

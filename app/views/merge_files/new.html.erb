@@ -1,0 +1,39 @@
+<h1>Combinar Arquivos</h1>
+
+<p class="merge-file-text">
+	Escolha um ponto de junção de cada arquivo para combina-los.
+</p>
+<p class="merge-file-text">
+	Certifique-se de que os pontos escolhidos sejam do mesmo tipo, únicos e possuam cardinalidade 1-1.
+</p>
+
+<p class="merge-file-text">
+	Atualmente, apenas a junção simples 1-1 está disponível. Portanto, quaisquer outras possibilidades poderão gerar resultados indesejados e não satisfatórios.
+</p>
+
+<%= form_for @merge_file do |f| %>
+	<div class="row-fluid ">
+		<%= label_tag(:merge_name, "Nome da Coleção") %>
+		<%= text_field_tag(:merge_name) %>
+	</div>
+	<div class="row-fluid">
+		<% @data_files.each do |data_file| %>
+			<div class="span<%= @count %>" >
+				<ul class="data-file-to-merge">
+					<li class="data-file-title"><%= data_file.title %></li>
+				<% data_file.header_to_array.each do |item| %>
+					<li class="data-file-header-item">
+						<label class="checkbox">
+							<%= check_box_tag("file_fields[]", item) %>
+							<%= item %>
+						</label>
+					</li>
+				<% end %>
+				<%= hidden_field_tag("file_ids[]", data_file.id) %>
+				</ul>
+			</div>
+		<% end %>
+		<%= hidden_field_tag("initial_input_id", @data_files[0].initial_input_id) %>
+		<%= f.button "Combinar Arquivos", :class => 'btn btn-primary start-merge-button' %>
+	</div>
+<% end -%>
