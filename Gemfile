@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'carrierwave'
 gem 'devise'
 gem "twitter-bootstrap-rails"
@@ -16,6 +16,7 @@ gem 'roo' # handles xls and csv files
 gem 'debugger'
 gem "mongoid", "~> 3.0.0"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'iconv'
 
 # Gems used only for assets and not required
 # in production environments by default.
