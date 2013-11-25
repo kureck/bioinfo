@@ -2,6 +2,14 @@
 
 TODO list
 
-* estudar algoritmo Apriori
+* estudar algoritmo Apriori. Procurar literatura.
 * estudar este mesmo algoritmo em R
 * estudar Frequent Pattern Mining em R e em Hadoop
+* estudar redução de dimensionalidade (Teoria)
+* estudar redução de dimensionalidade em R, Mahout e Hadoop
+* procurar como fazer FPM em Mahout com o algoritmo passado pelo twitter
+* fazer o Rails funcionar com o R
+* fazer o Rails funcionar com Hadoop
+* estudar um pouco o JRuby e testar a execução de algoritmos dentro do Rails
+* Instalar o MongoDB adapter para Hadoop e testar no Rails
+* escrever um pouco todo dia
