@@ -13,3 +13,4 @@ TODO list
 * estudar um pouco o JRuby e testar a execução de algoritmos dentro do Rails
 * Instalar o MongoDB adapter para Hadoop e testar no Rails
 * escrever um pouco todo dia
+* teste
