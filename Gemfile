@@ -13,7 +13,6 @@ gem "bootstrap-sass"
 gem "jquery-rails", "2.1.4"
 gem 'simple_form'
 gem 'roo' # handles xls and csv files
-gem 'debugger'
 gem "mongoid", "~> 3.0.0"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'iconv'
@@ -26,3 +25,14 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test, :development do
+  gem "capybara"
+  gem "debugger", '1.6.0'
+  gem "factory_girl_rails", '4.2.1'
+  gem "faker", "1.1.2"
+  gem "guard-rspec"
+  gem "launchy"
+  gem "rspec-rails", '2.13.2'
+  gem "pry"
+  gem "pry-debugger"
+end
